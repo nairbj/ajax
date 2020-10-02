@@ -21,22 +21,23 @@
       event.preventDefault();
       document.getElementById("txtHint").innerHTML = //This is for the textbox whenever we press a key
         document.getElementById("cityField").value;
-        const url = "http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q=P";
-            fetch(url)
-                .then(function(response) {
-                    return response.json();
-                }).then(function(json) {
-                    console.log(json);
-                    console.log(json[0]);
-                    console.log("Got " + json[0].city);
-                    var everything;
-                    everything = "<ul>";
-                    for (let i = 0; i < json.length; i++) {
-                        everything += "<li> " + json[i].city;
-                    };
-                    everything += "</ul>";
-                    document.getElementById("txtHint").innerHTML = everything;
-                });
+        const url = "http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q="+
+            document.getElementById("cityField").value;
+      fetch(url)
+        .then(function(response) {
+          return response.json();
+        }).then(function(json) {
+          console.log(json);
+          console.log(json[0]);
+          console.log("Got " + json[0].city);
+          var everything;
+          everything = "<ul>";
+          for (let i = 0; i < json.length; i++) {
+            everything += "<li> " + json[i].city;
+          };
+          everything += "</ul>";
+          document.getElementById("txtHint").innerHTML = everything;
+        });
     });
   </script>
 </body>
