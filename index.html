@@ -21,8 +21,8 @@
       event.preventDefault();
       document.getElementById("txtHint").innerHTML = //This is for the textbox whenever we press a key
         document.getElementById("cityField").value;
-        const url = "http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q="+
-            document.getElementById("cityField").value;
+      const url = "http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q=" +
+        document.getElementById("cityField").value;
       fetch(url)
         .then(function(response) {
           return response.json();
